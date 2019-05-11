@@ -23,10 +23,8 @@ export const renameColumn = (name, id) => ({
 })
 
 const initialState = {
-  columns: {
-    columnsById: {},
-    allColumns: []
-  }
+  columnsById: {},
+  allColumns: []
 }
 
 export const columns = (state = initialState, action) => {
@@ -38,29 +36,25 @@ export const columns = (state = initialState, action) => {
       }
 
       return {
-        columns: {
-          ...state.columns,
-          columnsById: [...state.columns.columnsById, newColumn]
-        }
+        ...state,
+        columnsById: { ...state.columnsById, newColumn }
       }
 
     case RENAME_COLUMN:
       return {
-        columns: {
-          ...state.columns,
-          columnsById: {
-            ...state.columns.columnsById,
-            [action.id]: {
-              ...state.columns.columnsById[action.id],
-              name: action.name
-            }
+        ...state,
+        columnsById: {
+          ...state.columnsById,
+          [action.id]: {
+            ...state.columnsById[action.id],
+            name: action.name
           }
         }
       }
 
     case DELETE_COLUMN:
-      let { columnsById, allColumns } = state
-      let { [action.id]: deletedColumn, ...rest } = columnsById
+      const { columnsById, allColumns } = state
+      const { [action.id]: deletedColumn, ...rest } = columnsById
       return {
         ...state,
         columnsById: rest,

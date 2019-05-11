@@ -1,4 +1,3 @@
-// const nanoid = require('nanoid')
 import nanoid from 'nanoid'
 
 const ADD_COLUMN = '@@columns/add'
@@ -37,7 +36,8 @@ export const columns = (state = initialState, action) => {
 
       return {
         ...state,
-        columnsById: { ...state.columnsById, newColumn }
+        columnsById: { ...state.columnsById, newColumn },
+        allColumns: [...state.allColumns, action.id]
       }
 
     case RENAME_COLUMN:

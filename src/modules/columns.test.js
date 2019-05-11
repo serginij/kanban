@@ -11,7 +11,7 @@ describe('columns reducer', () => {
     const action = actionCreators.addColumn('Test')
     const { id } = action
 
-    expect(columns(initialState, action)).toEqual({
+    const expectedState = {
       columnsById: {
         [id]: {
           name: 'Test',
@@ -19,31 +19,38 @@ describe('columns reducer', () => {
         }
       },
       allColumns: [id]
-    })
+    }
+
+    expect(columns(initialState, action)).toEqual(expectedState)
   })
 
   it('should change column name', () => {
+    const testId = '8ca-bh3&'
     const initialState = {
       columnsById: {
-        '8ca-bh3&': {
+        [testId]: {
           name: 'Test',
           cards: []
         }
       },
-      allColumns: ['8ca-bh3&']
+      allColumns: [testId]
     }
 
-    const action = actionCreators.renameColumn('New', '8ca-bh3&')
+    const testName = 'New'
 
-    expect(columns(initialState, action)).toEqual({
+    const action = actionCreators.renameColumn(testName, testId)
+
+    const expectedState = {
       columnsById: {
-        '8ca-bh3&': {
-          name: 'New',
+        [testId]: {
+          name: testName,
           cards: []
         }
       },
-      allColumns: ['8ca-bh3&']
-    })
+      allColumns: [testId]
+    }
+
+    expect(columns(initialState, action)).toEqual(expectedState)
   })
 
   it('should remove column', () => {
@@ -63,7 +70,7 @@ describe('columns reducer', () => {
 
     const action = actionCreators.deleteColumn('8ca-bh3&')
 
-    expect(columns(initialState, action)).toEqual({
+    const expectedState = {
       columnsById: {
         '9tye-q61': {
           name: 'Second',
@@ -71,6 +78,8 @@ describe('columns reducer', () => {
         }
       },
       allColumns: ['9tye-q61']
-    })
+    }
+
+    expect(columns(initialState, action)).toEqual(expectedState)
   })
 })

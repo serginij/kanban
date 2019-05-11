@@ -36,7 +36,7 @@ export const columns = (state = initialState, action) => {
 
       return {
         ...state,
-        columnsById: { ...state.columnsById, newColumn },
+        columnsById: { ...state.columnsById, [action.id]: newColumn },
         allColumns: [...state.allColumns, action.id]
       }
 

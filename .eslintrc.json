@@ -23,6 +23,7 @@
     "react-hooks/exhaustive-deps": "warn",
     "prettier/prettier": "error",
     "react/prop-types": "off",
-    "no-case-declarations": "off"
+    "no-case-declarations": "off",
+    "no-unused-vars": "warn"
   }
 }

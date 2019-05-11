@@ -1,27 +1,68 @@
-const CREATE_COLUMN = '@@columns/create'
+const nanoid = require('nanoid')
 
-export const createColumn = name => ({
-  type: CREATE_COLUMN,
-  name
-})
+const ADD_COLUMN = '@@columns/add'
+const DELETE_COLUMN = '@@columns/delete'
+const RENAME_COLUMN = '@@columns/rename'
+
+export const addColumn = name => {
+  return {
+    type: ADD_COLUMN,
+    name,
+    id: nanoid(8)
+  }
+}
+
+export const deleteColumn = id => {
+  return {
+    type: DELETE_COLUMN,
+    columnId: id
+  }
+}
+
+export const renameColumn = (name, id) => {
+  return {
+    type: RENAME_COLUMN,
+    name,
+    id: id
+  }
+}
 
 const initialState = {
-  columns: []
+  columnsById: {},
+  allColumns: []
 }
 
 export const columns = (state = initialState, action) => {
   switch (action.type) {
-    case CREATE_COLUMN:
-      const newColumn = {
+    case ADD_COLUMN:
+      const columns = state.columnsById
+      columns[action.id] = {
         name: action.name,
-        tasks: []
+        cards: []
       }
-
       return {
         ...state,
-        columns: [...state.columns, newColumn]
+        columnsById: columns
       }
-
+    case RENAME_COLUMN:
+      const column = state.columnsById[action.id]
+      column.name = action.name
+      return {
+        ...state,
+        columnsById: {
+          ...this,
+          [action.id]: column
+        }
+      }
+    case DELETE_COLUMN:
+      let { columnsById, allColumns } = state
+      let { [action.id]: deletedColumn, ...rest } = columnsById
+      allColumns.filter(columnId => columnId !== action.id)
+      return {
+        ...state,
+        columnsById: rest,
+        allColumns: allColumns
+      }
     default:
       return state
   }

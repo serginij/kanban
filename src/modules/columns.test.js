@@ -82,4 +82,8 @@ describe('columns reducer', () => {
 
     expect(columns(initialState, action)).toEqual(expectedState)
   })
+
+  it('should be true', () => {
+    expect(true).toBe(true)
+  })
 })

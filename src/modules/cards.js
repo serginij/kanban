@@ -31,7 +31,8 @@ export const cards = (state = initialState, action) => {
   switch (action.type) {
     case ADD_CARD:
       const newCard = {
-        name: action.name
+        name: action.name,
+        _id: action.id
       }
 
       return {

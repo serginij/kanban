@@ -1,6 +1,6 @@
 import nanoid from 'nanoid'
 
-import { addCard, deleteCard, ADD_CARD, DELETE_CARD } from './cards'
+import { ADD_CARD, DELETE_CARD } from './cards'
 
 const ADD_COLUMN = '@@columns/add'
 const DELETE_COLUMN = '@@columns/delete'

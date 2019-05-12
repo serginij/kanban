@@ -15,7 +15,8 @@ describe('columns reducer', () => {
       columnsById: {
         [id]: {
           name: 'Test',
-          cards: []
+          cards: [],
+          _id: id
         }
       },
       allColumns: [id]

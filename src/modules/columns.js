@@ -33,7 +33,8 @@ export const columns = (state = initialState, action) => {
     case ADD_COLUMN:
       const newColumn = {
         name: action.name,
-        cards: []
+        cards: [],
+        _id: action.id
       }
 
       return {

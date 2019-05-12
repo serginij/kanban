@@ -1,5 +1,7 @@
 import nanoid from 'nanoid'
 
+import { addCard, deleteCard, ADD_CARD, DELETE_CARD } from './cards'
+
 const ADD_COLUMN = '@@columns/add'
 const DELETE_COLUMN = '@@columns/delete'
 const RENAME_COLUMN = '@@columns/rename'
@@ -60,6 +62,33 @@ export const columns = (state = initialState, action) => {
         columnsById: rest,
         allColumns: allColumns.filter(columnId => columnId !== action.id)
       }
+
+    case ADD_CARD:
+      return {
+        ...state,
+        columnsById: {
+          ...state.columnsById,
+          [action.columnId]: {
+            ...state.columnsById[action.columnId],
+            cards: [...state.columnsById[action.columnId].cards, action.id]
+          }
+        }
+      }
+
+    case DELETE_CARD:
+      return {
+        ...state,
+        columnsById: {
+          ...state.columnsById,
+          [action.columnId]: {
+            ...state.columnsById[action.columnId],
+            cards: state.columnsById[action.columnId].cards.filter(
+              cardId => cardId !== action.id
+            )
+          }
+        }
+      }
+
     default:
       return state
   }

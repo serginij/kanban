@@ -1,5 +1,9 @@
 import React from 'react'
 
-export const Card = props => {
-  return <p>{props.text}</p>
+export const Card = ({ text }) => {
+  return (
+    <li>
+      <p>{text}</p>
+    </li>
+  )
 }

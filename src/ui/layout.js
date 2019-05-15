@@ -1,8 +1,11 @@
-import React from 'react'
 import styled from 'styled-components'
 
-const MainLayout = styled.section`
-  background: url(mlechnyy-put-noch-zvezdy-nebo-3839.jpg);
+export const CommonLayout = styled.section`
+  background-image: url(${props => props.background});
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #e6faff;
+  width: 100vw;
+  height: 100vh;
 `
-
-export const mainLayout = ({ children }) => <MainLayout>{children}</MainLayout>

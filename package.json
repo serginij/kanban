@@ -31,7 +31,8 @@
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0-alpha.4",
     "redux": "^4.0.1",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "styled-reset": "^2.0.11"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",

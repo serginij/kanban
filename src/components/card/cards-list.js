@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { Card } from './index'
+import { Card } from './'
 
 export const CardsList = ({ cardsList }) => {
   const cardsById = useSelector(state => state.cards.cardsById)

@@ -28,7 +28,8 @@ module.exports = {
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, '../src/components/'),
-      '@modules': path.resolve(__dirname, '../src/modules/')
+      '@modules': path.resolve(__dirname, '../src/modules/'),
+      '@ui': path.resolve(__dirname, '../src/ui/')
     },
     extensions: ['.js']
   },

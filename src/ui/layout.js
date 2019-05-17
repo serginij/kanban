@@ -8,4 +8,5 @@ export const CommonLayout = styled.section`
   background-color: #e6faff;
   width: 100vw;
   height: 100vh;
+  display: flex;
 `

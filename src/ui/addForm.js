@@ -1,20 +1,17 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 
 export const AddForm = ({ onOpen, onClose, onAdd, text, id }) => {
   const [name, setName] = React.useState('')
-  const dispatch = useDispatch()
 
-  const handleAddColumn = e => {
+  const handleAdd = e => {
     e.preventDefault()
-    dispatch(onAdd(name, id))
+    onAdd(name)
     setName('')
   }
-
   const handleChange = e => setName(e.target.value)
 
   return (
-    <form onSubmit={handleAddColumn}>
+    <form onSubmit={handleAdd}>
       <input
         value={name}
         type="text"

@@ -14,7 +14,7 @@ describe('cards reducer', () => {
     const expectedState = {
       cardsById: {
         [id]: {
-          name: name,
+          name,
           _id: id
         }
       }

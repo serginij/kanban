@@ -1,5 +1,6 @@
 import { columns } from './columns'
 import * as actionCreators from './columns'
+import { addCard } from './cards'
 
 describe('columns reducer', () => {
   it('should add new column', () => {
@@ -20,6 +21,38 @@ describe('columns reducer', () => {
         }
       },
       allColumns: [id]
+    }
+
+    expect(columns(initialState, action)).toEqual(expectedState)
+  })
+
+  it('should add new card', () => {
+    const testColumnId = '8c7w-er3'
+    const testColumnName = 'Column name'
+
+    const initialState = {
+      columnsById: {
+        [testColumnId]: {
+          name: testColumnName,
+          cards: [],
+          _id: testColumnId
+        }
+      },
+      allColumns: [testColumnId]
+    }
+
+    const action = addCard('Test card', testColumnId)
+    const { id } = action
+
+    const expectedState = {
+      columnsById: {
+        [testColumnId]: {
+          name: testColumnName,
+          cards: [id],
+          _id: testColumnId
+        }
+      },
+      allColumns: [testColumnId]
     }
 
     expect(columns(initialState, action)).toEqual(expectedState)

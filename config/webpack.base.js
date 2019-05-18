@@ -15,13 +15,21 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'file-loader'
+        }
       }
     ]
   },
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, '../src/components/'),
-      '@modules': path.resolve(__dirname, '../src/modules/')
+      '@modules': path.resolve(__dirname, '../src/modules/'),
+      '@ui': path.resolve(__dirname, '../src/ui/')
     },
     extensions: ['.js']
   },

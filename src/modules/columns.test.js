@@ -28,10 +28,12 @@ describe('columns reducer', () => {
 
   it('should add new card', () => {
     const testColumnId = '8c7w-er3'
+    const testColumnName = 'Column name'
+
     const initialState = {
       columnsById: {
         [testColumnId]: {
-          name: '123',
+          name: testColumnName,
           cards: [],
           _id: testColumnId
         }
@@ -45,7 +47,7 @@ describe('columns reducer', () => {
     const expectedState = {
       columnsById: {
         [testColumnId]: {
-          name: '123',
+          name: testColumnName,
           cards: [id],
           _id: testColumnId
         }

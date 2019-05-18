@@ -7,13 +7,14 @@ describe('cards reducer', () => {
       cardsById: {}
     }
 
-    const action = actionCreators.addCard('Test')
+    const name = 'Test card name'
+    const action = actionCreators.addCard(name)
     const { id } = action
 
     const expectedState = {
       cardsById: {
         [id]: {
-          name: 'Test',
+          name: name,
           _id: id
         }
       }

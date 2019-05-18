@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { addCard } from '@modules/cards'
 
 import { AddForm } from '@ui/addForm'
-import { CardsList } from '../card/cards-list'
+import { CardsList } from '@components/card/cards-list'
 
 export const Column = ({ columnId }) => {
-  const { name, cards, id } = useSelector(
+  const { name, cards } = useSelector(
     state => state.columns.columnsById[columnId]
   )
   const dispatch = useDispatch()

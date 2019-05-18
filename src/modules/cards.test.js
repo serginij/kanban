@@ -6,8 +6,8 @@ describe('cards reducer', () => {
     const initialState = {
       cardsById: {}
     }
-
     const name = 'Test card name'
+
     const action = actionCreators.addCard(name)
     const { id } = action
 

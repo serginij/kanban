@@ -9,4 +9,11 @@ export const CommonLayout = styled.section`
   width: 100vw;
   height: 100vh;
   display: flex;
+  align-items: flex-start;
+  padding: 1.5em;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 19px;
 `

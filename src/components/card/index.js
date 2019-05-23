@@ -6,11 +6,15 @@ const Wrapper = styled.li`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  background: #fff;
-  min-height: 1.5rem;
+  background: #ffffff;
+  min-height: 2.5rem;
   border: none;
   border-radius: 3px;
   margin-bottom: 8px;
+  word-wrap: break-word;
+  &:last-child {
+    margin-bottom: 0;
+  }
 `
 
 const Text = styled.p`

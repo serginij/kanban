@@ -8,6 +8,7 @@ const Wrapper = styled.ul`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  box-sizing: border-box;
 `
 
 export const ColumnsList = () => {

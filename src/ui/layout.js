@@ -10,10 +10,12 @@ export const CommonLayout = styled.section`
   height: 100vh;
   display: flex;
   align-items: flex-start;
+  box-sizing: border-box;
   padding: 1.5em;
   font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
   line-height: 19px;
+  overflow-x: scroll;
 `

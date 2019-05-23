@@ -9,8 +9,9 @@ const Wrapper = styled.ul`
   flex-direction: column;
   align-items: center;
   max-height: 90%;
-  margin: auto;
-  width: 300px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 12px;
   overflow-y: scroll;
   overflow-x: hidden;
 `

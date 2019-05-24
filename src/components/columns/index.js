@@ -12,7 +12,13 @@ export const Columns = () => {
   return (
     <>
       <ColumnsList />
-      <AddForm onAdd={handleAddColumn} text="Добавить колонку" />
+      <AddForm
+        onAdd={handleAddColumn}
+        type="column"
+        placeholder="Название колонки"
+        inputText="Добавить еще одну колонку"
+        buttonText="Добавить колонку"
+      />
     </>
   )
 }

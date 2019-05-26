@@ -39,7 +39,7 @@ export const Column = ({ columnId }) => {
   return (
     <Wrapper>
       <Name>{name}</Name>
-      <CardsList cardsList={cards} columnId />
+      <CardsList cardsList={cards} columnId={columnId} />
       <AddForm
         onAdd={handleAddCard}
         buttonText="Добавить карточку"

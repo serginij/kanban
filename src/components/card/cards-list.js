@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { Droppable, DragDropContext } from 'react-beautiful-dnd'
 
 import { Card } from './'
 
@@ -16,9 +17,26 @@ const Wrapper = styled.ul`
   overflow-x: hidden;
 `
 
-export const CardsList = ({ cardsList }) => {
+export const CardsList = ({ cardsList, columnId }) => {
   const cardsById = useSelector(state => state.cards.cardsById)
-  const cards = cardsList.map(id => <Card key={id} text={cardsById[id].name} />)
+  const cards = cardsList.map((id, index) => (
+    <Card key={id} text={cardsById[id].name} index={index} />
+  ))
 
-  return <Wrapper>{cards}</Wrapper>
+  const onDragEnd = result => {
+    const { destination, source, draggableId } = result
+    return
+  }
+
+  return (
+    <DragDropContext onDragEnd={onDragEnd}>
+      <Droppable droppableId={columnId}>
+        {(provided, snapshot) => (
+          <Wrapper ref={provided.innerRef} {...provided.droppableProps}>
+            {cards}
+          </Wrapper>
+        )}
+      </Droppable>
+    </DragDropContext>
+  )
 }

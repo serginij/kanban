@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 
 import { AddForm } from '@ui/addForm'
 import { ColumnsList } from './columns-list'
+import { Column } from '@components/dnd/columns'
 
 export const Columns = () => {
   const dispatch = useDispatch()
@@ -19,6 +20,7 @@ export const Columns = () => {
         inputText="Добавить еще одну колонку"
         buttonText="Добавить колонку"
       />
+      <Column />
     </>
   )
 }

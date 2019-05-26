@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Draggable } from 'react-beautiful-dnd'
 
 const Wrapper = styled.li`
   display: flex;
@@ -21,10 +22,18 @@ const Text = styled.p`
   padding: 8px 0 8px 12px;
 `
 
-export const Card = ({ text }) => {
+export const Card = ({ text, id, index }) => {
   return (
-    <Wrapper>
-      <Text>{text}</Text>
-    </Wrapper>
+    <Draggable draggableId={id} index={index}>
+      {provided => (
+        <Wrapper
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+        >
+          <Text>{text}</Text>
+        </Wrapper>
+      )}
+    </Draggable>
   )
 }

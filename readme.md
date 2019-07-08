@@ -1,6 +1,6 @@
-# Kanban desk
+# Kanban board
 
-Simple kanban bord using React + Redux
+Simple kanban board using React + Redux
 
 ## Used technologies / libraries
 

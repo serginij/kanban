@@ -12,3 +12,7 @@ Simple kanban board using React + Redux
 - Styled components
 - CircleCI
 - Eslint + Prettier
+
+## Live sample
+
+https://kanban-serginij.now.sh/
